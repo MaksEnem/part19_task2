@@ -5,7 +5,7 @@
 int main() {
 
 	std::ifstream fin_w;
-	std::string str;
+	char buffer[20];
 
 	fin_w.open("D:\\Skillbox\\C++\\working\\Practice 19 (reading from files)\\task2\\words.txt");
 
@@ -23,15 +23,29 @@ int main() {
 
 	}
 
-	while (!fin_w.eof()) {
+	
+	do {
+
+		fin_w.read(buffer, sizeof(buffer));
+
+		for (int i = 0; i < 20; ++i) {
+
+			std::cout << buffer[i];
+
+		}
 
 
-		str = "";
-		getline(fin_w, str);
-		std::cout << str << std::endl;
+	} while (!fin_w.eof());
 		
-		
-	}
+
+
+	
+
+	
+
+	
+
+	
 
 
 
